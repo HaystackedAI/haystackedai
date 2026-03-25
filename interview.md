@@ -1,3 +1,29 @@
+I built an AI assistant for payroll and accounting queries.
+Users ask questions like “How much EI did we pay this year?” or “Show payroll tax totals for Q2.”
+The challenge is the answers must come from company database data, not general LLM knowledge.
+
+2. Architecture (30–40 sec)
+
+Explain the system clearly.
+
+Example: The system used a RAG architecture.
+
+Flow: User question
+- injection: Embedding search over company documents and reports (pgvector)
+- Retrieve top-k relevant records
+- Construct prompt with retrieved context
+- Send to LLM to generate the final answer
+
+Vector DB: PostgreSQL + pgvector
+Embedding model: text embedding model
+LLM: for answer generation and route
+Prompt template: enforced answer format
+Caching: stored embeddings to avoid recomputation
+
+
+We also combined vector search with keyword search (BM25) to improve recall.
+
+
 不是普通全栈面试那种“React 生命周期”或“HTTP 缓存策略”，而是：
 
 关于 RAG/LLM 的深度问题：

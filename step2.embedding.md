@@ -1,4 +1,4 @@
-IVFFlat vs HNSW 区别
+-IVFFlat vs HNSW 区别
 - IVFFlat (Inverted File Flat)
 构建速度：快
 查询速度：较慢
